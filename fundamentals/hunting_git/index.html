@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Git Hunting</title>
+    <style>
+        .wrapper{
+            width: 500px;
+            text-align:center;
+            margin: 200px auto;
+            padding: 15px;
+            border: 1px solid gray;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h3>Git Hunting</h3>
+        <br>
+        <form action="" >
+            <input type="text" name="name", placeholder="GitHub User Name" id="name">
+            <br>
+            <br>
+            <button id="butn">Search GitHub</button>
+        </form>
+        <div class="user-content">
+
+        </div>
+    </div>
+    <script>
+        $(document).ready(() =>{
+            $( "#butn" ).click(function() {
+                // alert("You submitted "+$( "#name" ).val());
+                var user=$( "#name" ).val();
+                var link = "https://api.github.com/users/"+user;
+                
+                if(user){
+                return search(link,user);
+                }else{
+                    alert("Please enter a user.")
+                }
+            })
+        })
+        function search(link,user){
+            $.get(link,user)
+            return createCard(user);
+
+        }
+        function createCard(user) {
+            console.log('user ', user);
+
+            const element = `
+                <div #id='card' class='card'>
+                <img class='img avatar' src="${user.avatar_url}" alt="avatar">
+                <p>Login: ${user.login}</p>
+                <p>Name: ${user.name || 'N/A'}</p>
+                <p>Repos: ${user.public_repos}</p>
+                <p>Gists: ${user.public_gists}</p>
+                </div>
+            `;
+
+            $('.user-content').first().empty().show().append(element);
+        }
+    </script>
+</body>
+</html>
+
+        
+            
+                
