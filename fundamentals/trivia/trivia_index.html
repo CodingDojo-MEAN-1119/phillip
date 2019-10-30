@@ -64,39 +64,14 @@
                 <button id="new-question">Get New Questions</button>
             </div>
         </div>
-        <div class="game-display">
-            <h3>This is a game header</h3>
-            <div class="question">
-
-            </div>
-            <div class="question">
-
-            </div>
-            <div class="question">
-
-            </div>
+        <div class="game-display-0">
+            
         </div>
-        <div class="game-display">
-            <h3>This is a game header</h3>
-            <div class="question">
-
-            </div>
-            <div class="question">
-
-            </div>
-            <div class="question">
-
-            </div>
+        <div class="game-display-1">
+            
         </div>
-        <div class="game-display">
-            <h3>This is a game header</h3>
-            <div class="question">
-
-            </div>
-            <div class="question">
-
-            </div>
-            <div class="question">
+        <div class="game-display-2">
+            
 
             </div>
         </div>
@@ -119,14 +94,43 @@
     })
     function getQuestion(str){
         
-        var questCat = ($.get(str));
-        console.log(questCat);
-        
-        // for(let key in questCat){
-        //     console.log(key);
-        // }
+        var questCat = ($.get(str, function(response){
+
+            var content=[];
+            for(let i=0; i<response.results.length; i++){
+                content.push(response.results[i]);
+            }
+            
+            return createQuestions(content);
+        }));
+    }
+    
+    function createQuestions(content){
+        for( var i=0; i<content.length; i++){
+            
+            
+                const header = `<h3>${content[i].category}</h3>`;
+                const element =`
+                <div class="question">
+                    <p>${content[i].question}</p>
+                    <input type="radio" name ="answer" value="${content[i].incorrect_answers[0]}"> ${content[i].incorrect_answers[0]}<br>
+                    <input type="radio" name ="answer" value="${content[i].correct_answer}">${content[i].correct_answer} <br>
+                    <input type="radio" name ="answer" value="${content[i].incorrect_answers[1]}"> ${content[i].incorrect_answers[1]}<br>
+                    <input type="radio" name ="answer" value="${content[i].incorrect_answers[2]}"> ${content[i].incorrect_answers[2]}<br>
+    
+                </div>
+                `;
+                console.log(header);
+                $(`.game-display-${i}`).first().empty().show().append(element);
+        }
+        // $(`.game-display-0`).first().empty().show().append(`<h3>${content[0].category}</h3>`);
+        // $(`.game-display-1`).first().empty().show().append(`<h3>${content[1].category}</h3>`);
+        // $(`.game-display-2`).first().empty().show().append(`<h3>${content[2].category}</h3>`);
+
     }
     
     </script>
+
+    
 </body>
 </html>
