@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trivia Game</title>
+
+    <style>
+        .wrapper{
+            width: 70%;
+            text-align:center;
+            margin: 0px auto;
+            
+            border: 1px solid gray;
+            font-family: sans-serif;
+        }
+        button{
+            background-color: rgb(10, 226, 118);
+            color: black;
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+        .game-display{
+            width: 25%;
+            display: inline-block;
+            vertical-align: top;
+            text-align: center;
+            padding: 15px;
+            border: 1px solid gray;
+            margin: 20px 10px;
+        }
+        .game-display h3{
+            background-color: blue;
+            color: white;
+            padding: 5px 8px;
+            
+            
+        }
+        .question{
+            width: 200px;
+            height: 200px;
+            display: block;
+            background-color: rgb(12, 51, 102);
+            color: white;
+            border-radius: 15px;
+            margin: 5px auto;
+            border: 3px solid lightslategray;
+        }
+        .button-area{
+            display: none;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <h2>The Great Trivia Game</h2>
+            <h4>Your Points: XXX</h4>
+            <div class="button-area" display="hidden">
+                <button id="new-question">Get New Questions</button>
+            </div>
+        </div>
+        <div class="game-display">
+            <h3>This is a game header</h3>
+            <div class="question">
+
+            </div>
+            <div class="question">
+
+            </div>
+            <div class="question">
+
+            </div>
+        </div>
+        <div class="game-display">
+            <h3>This is a game header</h3>
+            <div class="question">
+
+            </div>
+            <div class="question">
+
+            </div>
+            <div class="question">
+
+            </div>
+        </div>
+        <div class="game-display">
+            <h3>This is a game header</h3>
+            <div class="question">
+
+            </div>
+            <div class="question">
+
+            </div>
+            <div class="question">
+
+            </div>
+        </div>
+        
+    </div>
+
+    <script>
+
+    const searchLinks=[
+
+        "https://opentdb.com/api.php?amount=3&category=9&type=multiple",
+        "https://opentdb.com/api.php?amount=3&category=17&type=multiple",
+        "https://opentdb.com/api.php?amount=3&category=11&type=multiple"
+    ]
+    
+    $(document).ready(() =>{
+        for(let i=0; i<searchLinks.length; i++){
+            getQuestion(searchLinks[i]);
+        } 
+    })
+    function getQuestion(str){
+        
+        var questCat = ($.get(str));
+        console.log(questCat);
+        
+        // for(let key in questCat){
+        //     console.log(key);
+        // }
+    }
+    
+    </script>
+</body>
+</html>
