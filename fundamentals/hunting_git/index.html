@@ -21,12 +21,12 @@
     <div class="wrapper">
         <h3>Git Hunting</h3>
         <br>
-        <form action="" >
+        
             <input type="text" name="name", placeholder="GitHub User Name" id="name">
             <br>
             <br>
             <button id="butn">Search GitHub</button>
-        </form>
+        
         <div class="user-content">
 
         </div>
@@ -37,18 +37,20 @@
                 // alert("You submitted "+$( "#name" ).val());
                 var user=$( "#name" ).val();
                 var link = "https://api.github.com/users/"+user;
-                
+                 console.log(user,link);
                 if(user){
-                return search(link,user);
+                    return search(link);
                 }else{
                     alert("Please enter a user.")
                 }
             })
         })
-        function search(link,user){
-            $.get(link,user)
-            return createCard(user);
-
+        function search(link){
+            $.get({
+          url: link,
+          success: createCard,
+          error: ()=>{alert("This is an error.")}
+        });
         }
         function createCard(user) {
             console.log('user ', user);
