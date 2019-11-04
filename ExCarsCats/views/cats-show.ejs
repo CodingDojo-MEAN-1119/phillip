@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
+    <title>Cats</title>
+
+</head>
+<body>
+    <div class="wrapper">
+        <img src=<%= cat_data.img %> alt= <%= cat_data.name %> >
+        <h3><%= cat_data.name %></h3>
+        <p>Favorite Food: <% cat_data.f_food %></p>
+        <p>Sleeping Spots: </p>
+        <ul>
+            <% const p = cat_data.f_sleep.length %>
+            <% for (let i=0; i<p; i++) {%>
+            <li><%= cat_data.f_sleep[i] %></li>
+            <% } %>
+        </ul>
+        <a href="/cats">View Cats</a>
+    </div>
+</body>
+</html>
