@@ -6,34 +6,31 @@ app.set('views', __dirname+'/views');
 app.use(express.urlencoded({extended: true}));
 
 
-const session = require('express-session');
-app.use(session({
-  secret: 'keyboardkitteh',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { maxAge: 6000000 }
-}));
+// const session = require('express-session');
+// app.use(session({
+//   secret: 'keyboardkitteh',
+//   resave: false,
+//   saveUninitialized: true,
+//   cookie: { maxAge: 600000 }
+// }));
 
 app.get('/', (req, resp)=>{
-    var count  = req.session.count;
-    if(count == 0 || count==0){
-        count=1;
-    }
-    resp.render("index", {count:count});
+    resp.render("index");
 });
 
-app.get('/byOne', (req,resp)=>{
-    req.session.count++;
-    resp.redirect('/');
+app.post('/form-process', (req,resp)=>{
+    const data = {
+        name: req.body.name,
+        location: req.body.loction,
+        f_lang: req.body.f_lang,
+        comment: req.body.comment
+    };
+    resp.redirect('/result',{data:data});
 });
 
-app.get('/byTwo', (req,resp)=>{
-    req.session.count+=2;
-    resp.redirect('/');
-});
-app.get('/reset', (req,resp)=>{
-    req.session.count=0;
-    resp.redirect('/');
+app.get('/result', data, (req,resp)=>{
+    const data = data;
+    resp.render('results',{data:data});
 });
 
 app.listen(8000, ()=>{

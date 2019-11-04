@@ -12,15 +12,12 @@
 </head>
 <body>
     <div class="wrapper">
-        <h3>Student Survey</h3>
+        <h3>Student Survey Results</h3>
         <br>
-        <form action="/form-process" method="post">
-            <p><span>Name:</span><input type="text" name="name"></p>
-            <p><span>Dojo Location:</span><input type="text" name="location"></p>
-            <p><span>Favorite Language:</span><input type="text" name="language"></p>
-            <p><span>Comments:</span><input type="textarea" name="comment"></p>
-
-        </form>
+        <p><span>Name: </span><%= data.name %></p>
+        <p><span>Dojo Location: </span><%= data.locaiton %></p>
+        <p><span>Favorite Language: </span><%= data.language %></p>
+        <p><span>Comments: </span><%= data.comment %></p>
     </div>
 </body>
 </html>
