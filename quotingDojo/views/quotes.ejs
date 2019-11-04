@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quoting Dojo</title>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Here are the Awesome Quotes!</h1>
+        <div class="display">
+            <%if(quotes){%>
+                <% for (let i=0; i<quotes.length; i++) {%>
+                    <div>
+                        <p>"<%= quotes[i].quote%>"</p>
+                        <p class="quoteCredit"> - <%= quotes[i].name%> at <%= quotes[i].createdAt%></p>
+                    </div>
+                <%}%>
+            <%}%>
+        </div>
+    </div>
+</body>
+</html>
