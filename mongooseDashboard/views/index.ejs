@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Cat Pack</title>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Welcome to the Cat Pack</h1>
+        <br>
+        <a href="/cats/new"><button>Add A Cat</button></a>
+        <% if(cats) {%>
+        <table>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Favorite Food</th>
+            <th>Favorite Hiding Spots</th>
+            <th>Actions</th>
+            <%for(let i=0; i<cats.length; i++){ %>
+                <tr>
+                    <td><%=cats[i]._id %></td>
+                    <td><%=cats[i].name%></td>
+                    <td><%=cats[i].f_food %></td>
+                    <td>
+                        <%for(let j=0; j<cats[i].h_spots.length; j++) {%>
+                           <%= cats[i].h_spots[j]%>, 
+                         <%}%>  
+                    </td>
+                    <td><a href="/cats/<%=cats[i]._id %>">View</a> | <a href="/cats/edit/<%=cats[i]._id %>">Edit</a>  |  <a href="/cats/destroy/<%=cats[i]._id %>">Delete</a></td>
+                </tr>
+            <%}%>
+        </table>
+        <%}%>
+    </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+*{
+    font-family: 'Rubik',sans-serif;
+    margin:0;
+    padding:0;
+    
+}
+
+.wrapper{
+    margin: 30px auto;
+    border: 1px solid gray;
+    padding: 15px 15px;
+    text-align: center;
+    width: 80%;
+    border-radius: 15px;
+}
+.display{
+    text-align: left;
+    padding: 10px 10px;
+    margin: 0px auto;
+    
+}
+.quoteCredit{
+    color: blue;
+    font-size: 15px;
+    text-align: right;
+}
+
+button{
+    margin-left: 15px;
+    background-color: white;
+    border: 3px solid black;
+    color: black;
+    box-shadow: 4px 4px rgb(27, 26, 26);
+    padding: 8px 12px;
+    margin-top: 15px;
+    
+}
+div{
+    margin: 10px auto;
+}
+#back{
+    display: block;
+}
+table{
+    padding: 5px 5px;
+    margin: 10px auto;
+}
+th{
+    background-color: rgb(67, 69, 75);
+    color: white;
+}
+th, td{
+    padding:5px 15px;
+    border-right: 1px solid gray;
+    border-left: 1 px solid gray;
+}
+span{
+    font-weight: bold;
+}
