@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Message Board</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <h1>Welcome to the Message Board</h1>
+        </div>
+        <div class="main-display">
+            <%for(const m of messages) {%>
+                <div class="message">
+                    <p class="quote-credit">~ <%=m.name%>, <%= moment(m.createdAt).format('MM-DD-YYYY')%> </p>
+                    <p class="message-text"><%=m.text%></p>
+                    <div class="comment">
+                        <form action="/comments/new/<%=m._id%>" method="post">
+                            <table>
+                                <tr>
+                                    <td>Your Name:</td>
+                                    <td><input type="text" name="name"></td>
+                                </tr>
+                                <tr>
+                                    <td>Comment:</td>
+                                    <td><textarea name="text" id="" cols="30" rows="2"></textarea></td>
+                                    <td><button type="submit">Post Comment</button></td>
+                                </tr>
+                            </table>
+                        </form>
+                        <h4>Posted Comments:</h4>
+                        <% for (let i=0; i<m.comments.length; i++){%>
+                            <div class="message">
+                                <p class="quote-credit">~ <%= m.comments[i].name %>, <%= moment(m.comments[i].createdAt).format('MM-DD-YYYY')%> </p>
+                                <p class="comment-text"><%= m.comments[i].text %></p>
+                            </div>
+                        <%}%>
+                    </div>
+                </div>
+
+            <% }%>
+
+        </div>
+        <div class="sidebar">
+            <h3>Add A New Message</h3>
+            <form action="/messages" method="post">
+                <table>
+                    <tr>
+                        <td>Your Name:</td>
+                        <td><input type="text" name="name"></td>
+                    </tr>
+                    <tr>
+                        <td>Message:</td>
+                        <td><textarea name="text" id="" cols="30" rows="5"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><button type="submit">Post Message</button> </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+                                
+                                    
+                                    
+                            
+                        
+                        
+                
+
+       

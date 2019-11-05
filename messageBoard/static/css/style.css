@@ -1,0 +1,107 @@
+*{
+    font-family: 'Rubik',sans-serif;
+    margin:0;
+    padding:0;
+    
+}
+
+.wrapper{
+    margin: 30px auto;
+    /* border: 3px solid gray; */
+    padding: 15px 15px;
+    text-align: center;
+    width: 95%;
+    /* border-radius: 15px; */
+    vertical-align: top;
+}
+.display{
+    text-align: left;
+    padding: 10px 10px;
+    margin: 0px auto;
+    
+}
+.quote-credit{
+    color: rgb(118, 118, 121);
+    font-size: 15px;
+    text-align: right;
+}
+
+button{
+    margin-left: 15px;
+    background-color: white;
+    border: 3px solid black;
+    color: black;
+    box-shadow: 4px 4px rgb(27, 26, 26);
+    padding: 8px 12px;
+    margin-top: 15px;
+    
+}
+
+table{
+    padding: 5px 5px;
+    margin: 10px auto;
+}
+th{
+    background-color: rgb(67, 69, 75);
+    color: white;
+}
+th, td{
+    padding:5px 5px;
+    
+}
+span{
+    font-weight: bold;
+}
+.header{
+    margin: 15px auto;
+    border-bottom: 3px solid lightslategray;
+    padding: 10px 0px;
+}
+.main-display{
+    width: 50%;
+    border: 1px solid lightslategray;
+    display: inline-block;
+    text-align: left;
+    margin-right: 15px;
+    padding: 15px 10px;
+    min-height: 150px;
+    vertical-align: top;
+}
+.sidebar{
+    width: 35%;
+    min-height: 150px;
+    border: 1px solid lightslategray;
+    display: inline-block;
+    text-align: left;
+    padding: 15px 10px;
+    vertical-align: top;
+}
+input{
+    width: 100%;
+    height: 20px;
+}
+.message-text{
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+.sm-link{
+    font-size: 15px;
+}
+.message{
+    padding: 5px 15px;
+    border: 1px solid lightblue;
+    margin: 10px auto;
+}
+.comment{
+    border: 1px solid lightcoral;
+    padding: 5px 15px;
+    text-align: right;
+    margin-top: 25px;
+}
+.comment h4{
+    text-align: left;
+}
+.comment-text{
+    font-size: 20px;
+    text-align: left;
+}
