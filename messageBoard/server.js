@@ -1,4 +1,5 @@
 /////////// Setting Server & Dependencies ////////////
+// Dependences to install( npm init, npm i express mongoose ejs session.io body-parser moment)
 
 const express = require('express');
 const app = express();
@@ -57,6 +58,7 @@ app.get('/', (req,resp)=>{
 });
 
 app.post('/messages', (req,resp)=>{
+    
     Message.create(req.body)
     .then(()=>{ resp.redirect('/')})
     .catch(err => console.log(err));

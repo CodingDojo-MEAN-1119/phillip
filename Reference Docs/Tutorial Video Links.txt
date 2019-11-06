@@ -1,0 +1,10 @@
+Promises:
+
+https://www.youtube.com/watch?v=QO4NXhWo_NM
+https://www.youtube.com/watch?v=AwyoVjVXnLk
+https://www.youtube.com/watch?v=XO77Fib9tSI
+
+
+
+Callbacks:
+
