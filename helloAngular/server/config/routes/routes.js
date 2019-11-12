@@ -6,7 +6,6 @@ const controller = require('../../controllers/task.controller')
         });
     
         app.post('/', (req,resp)=>{
-            // console.log(req.body);
             controller.create(req,resp);
         });
     
