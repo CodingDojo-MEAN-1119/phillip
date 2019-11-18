@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>Restful Tasks Interactive</h1>
+  <h3>Create a Task</h3>
+  <form (submit)='onSubmit($event, taskForm)' #taskForm= "ngForm" autocomplete="off">
+    <div class="form-group">
+      <label for="title">Title: </label>
+      <input class="form-control" type="text" name="title" placeholder="title" [(ngModel)]='task.title'>
+    </div>
+    <div class="form-group">
+      <label for="description">Description: </label>
+      <textarea class="form-control" name="description" id="" cols="30" rows="3" ([ngModel])='task.description'>Description</textarea>
+    </div>
+
+    <button class="btn btn-default" *ngIf='taskForm.valid'>Submit</button>
+  </form>
+</div>

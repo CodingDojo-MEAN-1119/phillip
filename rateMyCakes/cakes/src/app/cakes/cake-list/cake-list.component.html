@@ -1,0 +1,35 @@
+<app-nav></app-nav>
+<app-cake-new></app-cake-new>
+
+<!--
+<div class='container'>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Year</th>
+          <th>Pages</th>
+          <th>Publisher</th>
+          <th>Author</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let book of books' (click)='onSelect(book)' [routerLink] = "book._id">
+          <td>{{ book?._id }}</td>
+          <td>{{ book.title }}</td>
+          <td>{{ book.year }}</td>
+          <td>{{ book.pages }}</td>
+          <td>{{ book.publisher }}</td>
+          <td>{{ book.author }}</td>
+          <td (click)='onEvent($event)'>
+            <button [routerLink]="[book._id, 'edit']"> Edit </button>
+            <button (click)='onDelete(book)'> Delete </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div> -->
+
+<app-cake-detail></app-cake-detail>

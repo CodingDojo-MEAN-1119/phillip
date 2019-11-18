@@ -11,7 +11,6 @@ export class HttpService {
   }
 
   getTasks() {
-    console.log("got to the service.")
     return this.http.get('/tasks');
   }
   getTasksById(id: string) {

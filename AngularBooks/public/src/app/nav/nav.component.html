@@ -1,0 +1,12 @@
+<br>
+<div class="container">
+
+  <nav class="navbar-nav">
+
+    <a *ngIf='!isAuthed' routerLink="/">Home  |</a><a routerLink="/books/new">  Create a New Book  |</a><a routerLink="/book">  View Books  |</a><a  *ngIf='isAuthed'  (click)='logout()'>  Logout</a>
+
+  </nav>
+</div>
+<br>
+
+
