@@ -1,0 +1,20 @@
+<div class="display" *ngIf='pet'>
+    <h3>Details about {{pet.name}}</h3>
+    <h3>{{pet.name}} has {{pet.likes}} likes!</h3>
+
+    <p>ID: {{pet._id}} </p>
+    <p>Name: {{pet.name}} </p>
+    <p>Type: {{pet.type}} </p>
+    <p>Description: {{pet.description}} </p>
+    <p>Skills:</p>
+    <ul>
+      <li *ngIf='pet.skill1'>{{pet.skill1}}</li>
+      <li *ngIf='pet.skill2'>{{pet.skill2}}</li>
+      <li *ngIf='pet.skill3'>{{pet.skill3}}</li>
+    </ul>
+    <br>
+    <button [routerLink]="['edit']"> Edit </button>
+    <button (click)='onDelete(pet)'> Delete </button>
+    <button (click)='addLike(pet)'> Like This Pet </button>
+
+  </div>

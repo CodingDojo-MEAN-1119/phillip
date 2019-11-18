@@ -1,0 +1,24 @@
+<div class='display'>
+  <a routerLink='/pets/new'> <h3>Add A New Pet</h3></a>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let pet of pets' (click)='onSelect(pet)' [routerLink] = "pet._id">
+          <td>{{ pet?._id }}</td>
+          <td>{{ pet.name }}</td>
+          <td>{{ pet.type }}</td>
+          <td (click)='onEvent($event)'>
+            <button [routerLink]="[pet._id]"> View Details </button>
+            <button [routerLink]="[pet._id, 'edit']"> Edit </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
